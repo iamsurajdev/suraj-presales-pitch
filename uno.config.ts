@@ -24,7 +24,7 @@ export default defineConfig({
     },
   },
   shortcuts: {
-    'display': 'font-display font-650 tracking-[-0.035em] leading-[1.02] text-ink',
+    'display': 'font-display font-600 tracking-[-0.035em] leading-[1.02] text-ink',
     'eyebrow': 'font-mono text-[10.5px] uppercase tracking-[0.18em] text-subtle',
     'lede': 'text-[15px] leading-[1.6] text-muted',
     'hairline': 'h-px w-full bg-line',
