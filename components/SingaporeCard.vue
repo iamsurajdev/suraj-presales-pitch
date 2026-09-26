@@ -29,10 +29,10 @@ const photoSrc = '/singapore.jpg'
       <div class="sg-lights" />
     </div>
 
-    <img v-if="photo" :src="photoSrc" alt="Suraj on-site in Singapore" class="absolute inset-0 h-full w-full object-cover" @error="photo = false">
+    <img v-if="photo" :src="photoSrc" alt="Suraj on-site at Marina Bay, Singapore" class="sg-photo absolute inset-0 h-full w-full object-cover" @error="photo = false">
     <div class="sg-scrim" />
 
-    <div class="relative flex h-full flex-col justify-between p-5">
+    <div class="relative flex h-full flex-col justify-between p-4">
       <span class="chip self-start !border-white/15 !bg-black/30 !text-white/90 backdrop-blur-md">
         <span class="live-dot" />
         Recent · On-site
@@ -41,10 +41,10 @@ const photoSrc = '/singapore.jpg'
         <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">
           Singapore · Marina Bay
         </div>
-        <div class="mt-1.5 font-display text-[22px] font-600 leading-[1.15] tracking-[-0.02em] text-white">
+        <div class="mt-1.5 font-display text-[18px] font-600 leading-[1.2] tracking-[-0.02em] text-white">
           Technical closures,<br>delivered in person.
         </div>
-        <div class="mt-3 font-mono text-[10px] tracking-wider text-white/45">
+        <div class="mt-2 font-mono text-[9px] tracking-wider text-white/50">
           1.2834° N · 103.8607° E
         </div>
       </div>
@@ -95,9 +95,23 @@ const photoSrc = '/singapore.jpg'
   -webkit-mask-image: linear-gradient(0deg, #000, transparent);
 }
 
+.sg-photo {
+  object-position: 50% 30%;
+  animation: sg-settle 6s var(--ease-out) both;
+}
+
+/* Slow settle-in, replays each time the slide is shown. */
+@keyframes sg-settle {
+  from {
+    transform: scale(1.08);
+  }
+}
+
 .sg-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 30%, rgba(4, 5, 12, 0.82) 100%);
+  background:
+    linear-gradient(180deg, rgba(4, 5, 12, 0.35) 0%, transparent 18%),
+    linear-gradient(180deg, transparent 55%, rgba(4, 5, 12, 0.88) 100%);
 }
 </style>

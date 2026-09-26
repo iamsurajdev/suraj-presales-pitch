@@ -371,7 +371,7 @@ orbs: top
   Not one leg of a relay. Whatever the buyer needs to sign and pay, I build it, present it and push it over the line.
 </p>
 
-<div class="glass mt-7 rounded-[22px] px-5 pb-6 pt-7 rise" style="--d: 3">
+<div class="glass mt-6 rounded-[22px] px-5 pb-5 pt-5 rise" style="--d: 3">
   <DealTimeline />
 </div>
 
@@ -395,7 +395,7 @@ accent: emerald
   <span class="text-gradient">Closed in the room,</span> <span class="accent-gradient" style="background-image: linear-gradient(90deg, var(--emerald), var(--cyan))">not just on Zoom.</span>
 </h2>
 
-<div class="mt-6 grid h-[316px] grid-cols-[1fr_1.05fr] gap-5">
+<div class="mt-6 grid h-[316px] grid-cols-[246px_1fr] gap-5">
   <div class="rise" style="--d: 2">
     <SingaporeCard />
   </div>

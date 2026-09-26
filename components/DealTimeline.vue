@@ -70,34 +70,43 @@ const technical = 5
 }
 
 .tl-phase {
-  position: relative;
-  height: 20px;
-  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
-  border-bottom: none;
-  border-radius: 8px 8px 0 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Label pill sits above the bracket with its own breathing room. */
 .tl-phase span {
-  position: relative;
-  top: -8px;
-  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 10px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--c) 14%, var(--glass-strong));
-  backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+  background: color-mix(in srgb, var(--c) 10%, transparent);
   font-family: var(--slidev-code-font-family, ui-monospace, monospace);
-  font-size: 9.5px;
+  font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--c);
+}
+
+.tl-phase::after {
+  content: '';
+  align-self: stretch;
+  height: 12px;
+  margin-top: 9px;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
 }
 
 .tl-rail {
   position: absolute;
   left: calc(100% / var(--cols) / 2);
   right: calc(100% / var(--cols) / 2);
-  /* phase bracket (20px) + gap (14px) + half a node (17px) */
-  top: 51px;
+  /* label (20) + gap (9) + bracket (12) + margin (14) + half a node (17) */
+  top: 72px;
   height: 2px;
 }
 

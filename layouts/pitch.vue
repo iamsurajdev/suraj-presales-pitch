@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import type { Accent, Orbs } from '../utils/accent'
 import { computed } from 'vue'
+import { accentVar } from '../utils/accent'
 
 const props = withDefaults(defineProps<{
   /** Section label shown above the headline, e.g. "The bottleneck". */
@@ -7,30 +9,25 @@ const props = withDefaults(defineProps<{
   /** Section number, e.g. "01". */
   index?: string
   /** Per-slide tint for glows, kicker and focus rings. */
-  accent?: 'indigo' | 'violet' | 'rose' | 'cyan' | 'emerald' | 'amber'
+  accent?: Accent
   /** Vertically centre the content (cover / closing slides). */
   center?: boolean
   /** Background orb arrangement. */
-  orbs?: 'corners' | 'top' | 'center' | 'none'
+  orbs?: Orbs
 }>(), {
   accent: 'indigo',
   center: false,
   orbs: 'corners',
 })
 
-const tint = computed(() => ({
-  indigo: 'var(--accent)',
-  violet: 'var(--accent-2)',
-  rose: 'var(--rose)',
-  cyan: 'var(--cyan)',
-  emerald: 'var(--emerald)',
-  amber: 'var(--amber)',
-})[props.accent])
+const tint = computed(() => accentVar[props.accent])
 </script>
 
 <template>
   <div class="pitch" :style="{ '--a': tint }">
-    <!-- Background system -->
+    <!-- In-canvas backdrop: used for PDF/PNG export. In the live deck,
+         global-top.vue renders a full-window backdrop instead so the
+         glow never gets clipped at the canvas edge. -->
     <div class="pitch-bg" aria-hidden="true">
       <div class="pitch-grid" />
       <template v-if="orbs === 'corners'">

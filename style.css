@@ -80,6 +80,34 @@ body,
   background: var(--bg) !important;
 }
 
+/* Live deck: global-top.vue paints a full-window backdrop behind the
+   canvas, so every wrapper between it and the slide goes transparent
+   and the in-canvas backdrop is dropped. Exports keep the canvas one. */
+html.ambient-on body,
+html.ambient-on #app,
+html.ambient-on #page-root,
+html.ambient-on .slidev-slide-container,
+html.ambient-on .slidev-slide-content,
+html.ambient-on .slidev-page,
+html.ambient-on .pitch {
+  background: transparent !important;
+}
+
+html.ambient-on .pitch-bg {
+  display: none;
+}
+
+/* Our dock handles navigation; Slidev's own bar stays reachable on hover
+   instead of persisting in the spare space on tall screens. */
+html.ambient-on #page-root nav {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+html.ambient-on #page-root nav:hover {
+  opacity: 1;
+}
+
 /* Zero-specificity reset so spacing utilities always win. */
 :where(h1, h2, h3, h4, p) {
   margin: 0;
